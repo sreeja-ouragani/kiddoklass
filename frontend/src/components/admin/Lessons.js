@@ -1,9 +1,15 @@
-// src/components/admin/Lessons.js
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Lessons.css';
+import UploadForm from './UploadForm';  // Import the UploadForm component
 
 const LessonsAdmin = () => {
+  const [showUploadForm, setShowUploadForm] = useState(false);  // State to control visibility of UploadForm
+
+  const handleAddLessonClick = () => {
+    setShowUploadForm(true);  // Show the upload form when the "ADD Lessons" button is clicked
+  };
+
   return (
     <div className="lessons-container">
       <div className="lessons-cards">
@@ -22,7 +28,12 @@ const LessonsAdmin = () => {
         </Link>
         {/* Additional Lesson Cards */}
       </div>
-      <button>ADD Lessons</button>
+
+      {/* Button to show the Upload Form */}
+      <button onClick={handleAddLessonClick}>ADD Lessons</button>
+
+      {/* Conditionally render the UploadForm */}
+      {showUploadForm && <UploadForm />}
     </div>
   );
 };

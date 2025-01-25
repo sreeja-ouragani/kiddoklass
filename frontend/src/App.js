@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Layout from './components/Layout';  // Layout for navigation and sidebar
-import RoleSelection from './components/RoleSelection';  // Role selection screen
-import Home from './components/Home';  // Home page
-import Lessons from './components/user/Lessons';  // User Lessons
-import Quizzes from './components/user/Quizzes';  // User Quizzes
-import ParentDashboard from './components/user/ParentsDashboard';  // User Parent Dashboard
-import AdminLessons from './components/admin/Lessons';  // Admin Lessons
-import AdminQuizzes from './components/admin/Quizzes';  // Admin Quizzes
-import UsersDashboard from './components/admin/UsersDashboard';  // Admin Dashboard
+import Layout from './components/Layout'; // Layout for navigation and sidebar
+import RoleSelection from './components/RoleSelection'; // Role selection screen
+import Home from './components/Home'; // Home page
+import Lessons from './components/user/Lessons'; // User Lessons
+import Quizzes from './components/user/Quizzes'; // User Quizzes
+import ParentDashboard from './components/user/ParentsDashboard'; // User Parent Dashboard
+import AdminLessons from './components/admin/Lessons'; // Admin Lessons
+import AdminQuizzes from './components/admin/Quizzes'; // Admin Quizzes
+import UsersDashboard from './components/admin/UsersDashboard'; // Admin Dashboard
+import UploadForm from './components/admin/UploadForm'; // Import the UploadForm component from admin folder
 import './App.css';
 
 function App() {
@@ -19,12 +20,13 @@ function App() {
       <Routes>
         {/* Role Selection Page */}
         <Route path="/" element={<RoleSelection setIsAdmin={setIsAdmin} />} />
+
         {/* Shared Layout */}
         <Route path="/" element={<Layout isAdmin={isAdmin} />}>
           {/* Shared Routes */}
           <Route path="home" element={<Home />} />
-          
-          {/* User Routes */}
+
+          {/* User Routes (Visible when not admin) */}
           {!isAdmin && (
             <>
               <Route path="lessons" element={<Lessons />} />
@@ -33,12 +35,13 @@ function App() {
             </>
           )}
 
-          {/* Admin Routes */}
+          {/* Admin Routes (Visible when admin is true) */}
           {isAdmin && (
             <>
               <Route path="lessons" element={<AdminLessons />} />
               <Route path="quizzes" element={<AdminQuizzes />} />
               <Route path="usersdashboard" element={<UsersDashboard />} />
+              <Route path="upload" element={<UploadForm />} /> {/* Admin route for UploadForm */}
             </>
           )}
         </Route>
