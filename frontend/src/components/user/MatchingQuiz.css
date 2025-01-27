@@ -1,0 +1,28 @@
+/* MatchingQuiz.css */
+.option-item {
+  padding: 10px;
+  margin: 5px 0;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.option-item.selected {
+  background-color: #cce5ff;
+}
+
+.feedback {
+  margin-top: 20px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.feedback.correct {
+  color: green;
+}
+
+.feedback.incorrect {
+  color: red;
+}

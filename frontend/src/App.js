@@ -5,11 +5,16 @@ import RoleSelection from './components/RoleSelection'; // Role selection screen
 import Home from './components/Home'; // Home page
 import Lessons from './components/user/Lessons'; // User Lessons
 import Quizzes from './components/user/Quizzes'; // User Quizzes
-import ParentDashboard from './components/user/ParentsDashboard'; // User Parent Dashboard
 import AdminLessons from './components/admin/Lessons'; // Admin Lessons
 import AdminQuizzes from './components/admin/Quizzes'; // Admin Quizzes
 import UsersDashboard from './components/admin/UsersDashboard'; // Admin Dashboard
 import UploadForm from './components/admin/UploadForm'; // Import the UploadForm component from admin folder
+
+// New imports for quiz pages
+import QuizPage from './components/user/QuizPage'; // New page for quiz content
+import MatchingQuiz from './components/user/MatchingQuiz'; // Matching type quiz
+import FillBlankQuiz from './components/user/FillBlankQuiz'; // Fill in the blank quiz
+
 import './App.css';
 
 function App() {
@@ -31,7 +36,12 @@ function App() {
             <>
               <Route path="lessons" element={<Lessons />} />
               <Route path="quizzes" element={<Quizzes />} />
-              <Route path="parentdashboard" element={<ParentDashboard />} />
+
+              {/* Quiz route - Redirect to specific quiz page */}
+              <Route path="quiz/:quizId" element={<QuizPage />} />
+              {/* Adding individual quiz types */}
+              <Route path="quiz/match" element={<MatchingQuiz />} />
+              <Route path="quiz/fillblank" element={<FillBlankQuiz />} />
             </>
           )}
 

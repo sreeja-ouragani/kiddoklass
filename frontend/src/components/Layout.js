@@ -38,7 +38,6 @@ const Layout = ({ isAdmin }) => {
             <>
               <li><Link to="/lessons"><FaBook /> Lessons</Link></li>
               <li><Link to="/quizzes"><FaQuestionCircle /> Quizzes</Link></li>
-              <li><Link to="/parentdashboard"><FaGamepad /> Parent Dashboard</Link></li>
             </>
           )}
 
@@ -50,8 +49,6 @@ const Layout = ({ isAdmin }) => {
             {isProfileMenuOpen && (
               <div className="profile-dropdown">
                 <ul>
-                  <li><Link to="/achievements">Achievements</Link></li>
-                  <li><Link to="/level">Level</Link></li>
                   <li><button onClick={() => alert('Logged out!')}>Logout</button></li>
                 </ul>
               </div>
